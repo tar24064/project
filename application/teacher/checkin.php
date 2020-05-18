@@ -28,16 +28,17 @@
                       <th>รหัสวิชา</th>
                       <th>ชื่อวิชา</th>
                       <th>เทอม</th>
+                      <th></th>
                       <th>จัดการ</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                    $course = $conn->query("SELECT course.id,course.code_id,course.name,course.term,course.credit,teacher.fullname
-                                            FROM course
-                                            INNER JOIN teacher
-                                            ON course.teacher_id = teacher.teacher_id
-                                            where course.teacher_id = '".$_SESSION["Teacher_id"]."';");
+                    $course = $conn->query("SELECT a.id,a.code_id,a.name,a.term,a.credit,b.fullname
+                                            FROM course as a
+                                            INNER JOIN teacher as b ON a.teacher_id = b.teacher_id
+                                            
+                                            where a.teacher_id = '".$_SESSION["Teacher_id"]."';");
                     while($course_row = $course->fetch_assoc()){
                   ?>
                     <tr>
@@ -45,6 +46,7 @@
                       <td><?php echo $course_row['code_id'];?></td>
                       <td><?php echo $course_row['name'];?></td>
                       <td><?php echo $course_row['term'];?></td>
+                      <td align="center"><a href="http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $course_row['code']; ?>&size=300*300" target="_blank" class="btn btn-secondary">QR Code</a></td>
                         <td align="center">  
                             <a href="checkin_start.php?code=<?php echo $course_row['code_id']; ?>" target="_blank" class="btn btn-primary">เปิดระบบเช็คชื่อ</a>
                             <a href="student.php?class=<?php echo $course_row['code_id']; ?>" target="_blank" class="btn btn-danger">รายชื่อนักศึกษา</a>
