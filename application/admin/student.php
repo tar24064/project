@@ -104,7 +104,8 @@
                             $teacher = $conn->query("SELECT `title_name` FROM `student`");
                             while($teacher_row = $teacher->fetch_assoc()){
                             ?>
-                                  <option value="<?php echo $teacher_row['title_name']; ?>"><?php echo $teacher_row['title_name']; ?></option>
+                                  <option value="<?php echo $teacher_row['title_name']; ?>" <?php if ($teacher_row['title_name'] == $tea_row['title_name']) {echo "selected"; }; ?>>
+                                    <?php echo $teacher_row['title_name']; ?></option>
                             <?php } ?>
                           </select>
                         <?php }else{
@@ -214,15 +215,6 @@
         </div>
       </div>
 
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-      <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
-      <!-- End of Main Content -->
 
       <!-- End of Main Content -->
       <?php include '../../application/footer.php'; ?>

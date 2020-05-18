@@ -1,6 +1,6 @@
     <?php 
       include '../../application/header.php'; 
-      $course = $conn->query("SELECT a.enroll_id,a.student_id,d.full_name,a.code_id,b.name,c.Teacher_id,c.fullname
+      $course = $conn->query("SELECT a.enroll_id,a.student_id,d.full_name,a.code_id,b.name,c.Teacher_id,c.fullname,b.term
                                             FROM `enroll` as a
                                             INNER JOIN course as b ON a.code_id = b.code_id
                                             INNER JOIN teacher as c ON b.teacher_id = c.Teacher_id

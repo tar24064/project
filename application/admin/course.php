@@ -100,7 +100,7 @@
                     while($course_row = $course->fetch_assoc()){
                   ?>
                     <tr>
-                      <td><?php echo $course_row['id'];?></td>
+                      <td><?php echo $course_row['id']; ?></td>
                       <td><?php if($editid == $course_row['id']) { ?>
                         <input type="text" class="form-control" id="courseid" name="courseid" value="<?php echo $result['code_id']; ?>" required>
                         <?php }else{
@@ -235,14 +235,5 @@
         </div>
       </div>
 
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
-
-      <!-- Latest compiled and minified JavaScript -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
-
-      <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
-      <!-- End of Main Content -->
 
       <?php include '../../application/footer.php'; ?>

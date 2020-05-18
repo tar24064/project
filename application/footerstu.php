@@ -47,7 +47,11 @@
 
 <!-- Custom scripts for all pages-->
 <script src="/js/sb-admin-2.min.js"></script>
-<script src="/js/bootstrap-select.js"></script>
+<script src="../../js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="../../js/defaults-*.min.js"></script>
+<!-- End of Main Content -->
 
 <!-- Page level plugins -->
 <script src="/vendor/datatables/jquery.dataTables.min.js"></script>

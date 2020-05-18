@@ -25,6 +25,8 @@ if($_SESSION['username'] == ""){
 
   <!-- Custom styles for this template -->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="../../css/bootstrap-select.min.css">
 
   <!-- Custom styles for this page -->
   <link href="../../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
