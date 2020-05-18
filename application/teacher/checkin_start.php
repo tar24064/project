@@ -16,10 +16,26 @@
                 <div class="row">
                   <div class="col">
                     <div class="col col-auto form-group">
-                        <label>วันที่ : </label>
+                        <label>วันที่ : <?php echo date("Y-m-d"); ?> <?php echo date("H:i:s"); ?></label>
                     </div>
                     <div class="col col-auto form-group">
-                        <label>ครั้งที่ : </label>
+                        <?php 
+                        //รอแก้ SQL
+                        $countep = $conn->query("SELECT count(enroll_id) as num FROM `enroll` as a
+                                            INNER JOIN course as b ON a.code_id = b.code_id
+                                            INNER JOIN teacher as c ON b.teacher_id = c.Teacher_id
+                                            INNER JOIN student as d on a.student_id = d.student_id
+                                            where a.code_id = '".$_GET['code']."'");
+                        $countep_row = $countep->fetch_assoc();
+                        if($countep_row['num'] >=1){
+                          $cr = $countep_row['num']+1;?>
+                          <label>ครั้งที่ : <?php echo $cr; ?></label>
+                        <?php }else{?>
+                          <label>ครั้งที่ : <?php echo "0"; ?></label>
+                        <?php  
+                        }
+                        ?>
+
                     </div>
                     <div class="col col-auto form-group">
                         <label for="exampleInputEmail1">ระยะเวลาที่ใช้ในการสอน (วินาที) :</label>
@@ -34,15 +50,39 @@
                     </div>
                   </div>
                   <div class="col">
-                    <div class="col col-auto form-group">
-                      <label>วิชา : </label>
-                    </div>
-                    <div class="col col-auto form-group">
-                      <label>ผู้สอน : </label>
-                    </div>
-                    <div class="col col-auto form-group">
-                      <label>ภาคเรียน : </label>
-                    </div>
+                    <?php 
+                        $course = $conn->query("SELECT a.code_id,a.name,a.term,b.fullname
+                                            FROM course as a
+                                            INNER JOIN teacher as b ON a.teacher_id = b.Teacher_id
+                                            where a.code_id = '".$_GET['code']."'");
+                        $course_row = $course->fetch_assoc();
+                        $countcos = $conn->query("SELECT count(id) as num FROM course as a
+                                                              INNER JOIN teacher as b ON a.teacher_id = b.Teacher_id
+                                                              where a.code_id = '".$_GET['code']."'");
+                        $countcos_row = $countcos->fetch_assoc();
+                        if($countcos_row['num'] >=1){?>
+                            <div class="col col-auto form-group">
+                              <label>วิชา : <?php echo $course_row['code_id']; ?> <?php echo $course_row['name']; ?></label>
+                            </div>
+                            <div class="col col-auto form-group">
+                              <label>ผู้สอน : <?php echo $course_row['fullname']; ?></label>
+                            </div>
+                            <div class="col col-auto form-group">
+                              <label>ภาคเรียน : <?php echo $course_row['term']; ?></label>
+                            </div>
+                        <?php }else{?>
+                          <div class="col col-auto form-group">
+                            <label>วิชา : </label>
+                          </div>
+                          <div class="col col-auto form-group">
+                            <label>ผู้สอน : </label>
+                          </div>
+                          <div class="col col-auto form-group">
+                            <label>ภาคเรียน : </label>
+                          </div>
+                        <?php  
+                        }
+                        ?>
                   </div>
                 </div>
                 <div class="" align="center">
