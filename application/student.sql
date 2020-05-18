@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2020 at 03:20 PM
+-- Generation Time: May 18, 2020 at 10:30 AM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.5
+-- PHP Version: 7.2.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `student`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkin`
+--
+
+CREATE TABLE `checkin` (
+  `id` int(11) NOT NULL,
+  `course_id` int(11) NOT NULL,
+  `ep` varchar(3) NOT NULL,
+  `classtime` varchar(20) NOT NULL,
+  `checklimit` varchar(20) NOT NULL,
+  `startclass` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
