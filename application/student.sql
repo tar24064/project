@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 10:30 AM
+-- Generation Time: May 18, 2020 at 07:08 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.30
+-- PHP Version: 7.4.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,11 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `checkin` (
   `id` int(11) NOT NULL,
   `course_id` int(11) NOT NULL,
-  `ep` varchar(3) NOT NULL,
   `classtime` varchar(20) NOT NULL,
   `checklimit` varchar(20) NOT NULL,
-  `startclass` timestamp NOT NULL DEFAULT current_timestamp()
+  `startclass` timestamp NOT NULL DEFAULT current_timestamp(),
+  `code` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `checkin`
+--
+
+INSERT INTO `checkin` (`id`, `course_id`, `classtime`, `checklimit`, `startclass`, `code`) VALUES
+(9, 10230, '3600', '30', '2020-05-18 16:37:23', 'wOp6bvI31nib67QPpriw'),
+(10, 10230, '3600', '30', '2020-05-18 16:45:11', 'ZqNYRP7eIPrDZ4gz8AjT');
 
 -- --------------------------------------------------------
 
@@ -43,10 +51,12 @@ CREATE TABLE `checkin` (
 --
 
 CREATE TABLE `checktime` (
+  `id` int(11) NOT NULL,
   `chk_id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `code_id` int(11) NOT NULL,
-  `checkin` timestamp NOT NULL DEFAULT current_timestamp()
+  `status` varchar(16) NOT NULL,
+  `note` varchar(255) DEFAULT NULL,
+  `checkin` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -145,10 +155,16 @@ INSERT INTO `teacher` (`Teacher_id`, `fullname`, `username`, `password`, `Role`)
 --
 
 --
+-- Indexes for table `checkin`
+--
+ALTER TABLE `checkin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `checktime`
 --
 ALTER TABLE `checktime`
-  ADD PRIMARY KEY (`chk_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `course`
@@ -179,10 +195,16 @@ ALTER TABLE `teacher`
 --
 
 --
+-- AUTO_INCREMENT for table `checkin`
+--
+ALTER TABLE `checkin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `checktime`
 --
 ALTER TABLE `checktime`
-  MODIFY `chk_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `course`
