@@ -16,8 +16,10 @@
         console.log(content);
         $.post("postqr.php",JSON.stringify({
           checkinID: content
-        }),function() {
+        }),function(data) {
           alert('post succes');
+          console.log("แสดงค่าตัวแปร -> "+checkinID);
+          console.log("แสดงค่าจาก ajax -> "+data);
         });
       });
       Instascan.Camera.getCameras().then(function (cameras) {
