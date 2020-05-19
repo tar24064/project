@@ -31,9 +31,9 @@ include_once("../config/db.php");
           $chktime_row = $chktime->fetch_assoc();
           if($chktime_row == null){
             $conn->query("INSERT INTO `checktime`(`chk_id`, `student_id`, `status`, `checkin`) VALUES ($chkid,$stuid,'$status','$checktime')");
-              echo "<script type='text/javascript'>alert('บันทึกข้อมูลสำเร็จ');</script>";
+              echo "บันทึกข้อมูลสำเร็จ";
           }else{
-              echo "<script type='text/javascript'>alert('มีข้อมูลในระบบแล้ว');</script>";
+              echo "มีข้อมูลในระบบแล้ว";
           }
         }
 ?>

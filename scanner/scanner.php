@@ -17,9 +17,7 @@
         $.post("postqr.php",{
           content
         },function(data) {
-          alert('post succes');
-          console.log("แสดงค่าตัวแปร -> "+content);
-          console.log("แสดงค่าจาก ajax -> "+data);
+          alert('data');
         });
       });
       Instascan.Camera.getCameras().then(function (cameras) {
