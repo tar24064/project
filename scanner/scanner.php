@@ -15,7 +15,7 @@
       scanner.addListener('scan', function (content) {
         console.log(content);
         $.post("postqr.php",JSON.stringify({
-          checkinID: content
+          checkin: content
         }),function(data) {
           alert('post succes');
           console.log("แสดงค่าตัวแปร -> "+checkinID);
