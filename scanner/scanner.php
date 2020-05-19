@@ -14,11 +14,11 @@
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
         console.log(content);
-        $.post("postqr.php",JSON.stringify({
-          checkin: content
-        }),function(data) {
+        $.post("postqr.php",{
+          content
+        },function(data) {
           alert('post succes');
-          console.log("แสดงค่าตัวแปร -> "+checkinID);
+          console.log("แสดงค่าตัวแปร -> "+content);
           console.log("แสดงค่าจาก ajax -> "+data);
         });
       });

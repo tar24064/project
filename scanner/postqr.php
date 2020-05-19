@@ -2,12 +2,15 @@
 header("Content-type:text/html; charset=UTF-8");          
 header("Cache-Control: no-store, no-cache, must-revalidate");         
 header("Cache-Control: post-check=0, pre-check=0", false); 
-include_once("../../../config/db.php");
-//if (isset($_POST['submit'])) {
-        $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['checkin']."'");
+require __DIR__.'/../vendor/Carbon/autoload.php';
+
+      use Carbon\Carbon;
+      use Carbon\CarbonInterval;
+include_once("../config/db.php");
+        $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['content']."'");
         $chk_row = $chk->fetch_assoc();
 
-        if ($chk_row['code'] == $_POST['checkin']) {
+        if ($chk_row['code'] == $_POST['content']) {
 
           $checktime = Carbon::now();
           $startclass = $chk_row['startclass'];
@@ -15,7 +18,7 @@ include_once("../../../config/db.php");
           $date = new Carbon($startclass, 'Asia/Bangkok');
           $time = $date->diffInSeconds($checktime);  
           $chkid = $chk_row['id'];
-          $stuid = $_POST['student_id'];
+          $stuid = 23820;
 
           if ($time <= $chk_row['checklimit']) {
             $status = "มา";
@@ -33,9 +36,4 @@ include_once("../../../config/db.php");
               echo "<script type='text/javascript'>alert('มีข้อมูลในระบบแล้ว');</script>";
           }
         }
-//      }
-
-//if(isset($_POST['checkinID']) && $_POST['checkinID']!=""){
-//    echo $_POST['checkinID']; // ตัวอย่าง
-//}
 ?>
