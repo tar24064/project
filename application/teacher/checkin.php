@@ -46,7 +46,7 @@
                       <td><?php echo $course_row['code_id'];?></td>
                       <td><?php echo $course_row['name'];?></td>
                       <td><?php echo $course_row['term'];?></td>
-                      <td align="center"><a href="http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $course_row['code']; ?>&size=300*300" target="_blank" class="btn btn-secondary">QR Code</a></td>
+                      <td align="center"><a href="course_list.php?code=<?php echo $course_row['code_id']; ?>" target="_blank" class="btn btn-primary">QR Code</a></td>
                         <td align="center">  
                             <a href="checkin_start.php?code=<?php echo $course_row['code_id']; ?>" target="_blank" class="btn btn-primary">เปิดระบบเช็คชื่อ</a>
                             <a href="student.php?class=<?php echo $course_row['code_id']; ?>" target="_blank" class="btn btn-danger">รายชื่อนักศึกษา</a>

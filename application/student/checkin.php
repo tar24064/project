@@ -27,20 +27,13 @@
           }else{
             $status = "ขาด";
           }
-          $chktime = $conn->query("SELECT * FROM `checktime` where chk_id = $chkid");
+          $chktime = $conn->query("SELECT * FROM `checktime` where chk_id = $chkid and student_id = $stuid");
           $chktime_row = $chktime->fetch_assoc();
-          echo $chktime_row['student_id'];
-          echo "<br>";
-          echo $stuid;
-          echo "<br>";
-          echo $chktime_row['chk_id'];
-          echo "<br>";
-          echo $chkid;
-          if ($chktime_row['student_id'] == $stuid && $chktime_row['chk_id'] == $chkid) {
-            echo "<script type='text/javascript'>alert('มีข้อมูลในระบบแล้ว');</script>";
-          }else{
+          if($chktime_row == null){
             $conn->query("INSERT INTO `checktime`(`chk_id`, `student_id`, `status`, `checkin`) VALUES ($chkid,$stuid,'$status','$checktime')");
-            echo "<script type='text/javascript'>alert('บันทึกข้อมูลสำเร็จ');</script>";
+              echo "<script type='text/javascript'>alert('บันทึกข้อมูลสำเร็จ');</script>";
+          }else{
+              echo "<script type='text/javascript'>alert('มีข้อมูลในระบบแล้ว');</script>";
           }
         }
       }
