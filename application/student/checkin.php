@@ -7,7 +7,7 @@
 
 
       if (isset($_POST['submit'])) {
-        $chk = $conn->query("SELECT * FROM `checkin`");
+        $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['checkin']."'");
         $chk_row = $chk->fetch_assoc();
 
         if ($chk_row['code'] == $_POST['checkin']) {

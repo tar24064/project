@@ -2,9 +2,9 @@
 header("Content-type:text/html; charset=UTF-8");          
 header("Cache-Control: no-store, no-cache, must-revalidate");         
 header("Cache-Control: post-check=0, pre-check=0", false); 
-include_once("../../config/db.php");
+include_once("../../../config/db.php");
 //if (isset($_POST['submit'])) {
-        $chk = $conn->query("SELECT * FROM `checkin`");
+        $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['checkin']."'");
         $chk_row = $chk->fetch_assoc();
 
         if ($chk_row['code'] == $_POST['checkin']) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2020 at 07:08 PM
+-- Generation Time: May 19, 2020 at 03:25 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -41,8 +41,7 @@ CREATE TABLE `checkin` (
 --
 
 INSERT INTO `checkin` (`id`, `course_id`, `classtime`, `checklimit`, `startclass`, `code`) VALUES
-(9, 10230, '3600', '30', '2020-05-18 16:37:23', 'wOp6bvI31nib67QPpriw'),
-(10, 10230, '3600', '30', '2020-05-18 16:45:11', 'ZqNYRP7eIPrDZ4gz8AjT');
+(11, 10230, '3600', '30', '2020-05-19 10:27:29', '2Tr0KxVoxJjpD7Tkrb4j');
 
 -- --------------------------------------------------------
 
@@ -198,13 +197,13 @@ ALTER TABLE `teacher`
 -- AUTO_INCREMENT for table `checkin`
 --
 ALTER TABLE `checkin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `checktime`
 --
 ALTER TABLE `checktime`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `course`
