@@ -6,7 +6,7 @@ require __DIR__.'/../../../vendor/Carbon/autoload.php';
 
       use Carbon\Carbon;
       use Carbon\CarbonInterval;
-include_once("/../../../config/db.php");
+include_once __DIR__.'/../../../config/db.php');
         $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['content']."'");
         $chk_row = $chk->fetch_assoc();
 
