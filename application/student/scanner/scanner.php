@@ -9,19 +9,17 @@
     <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   </head>
   <body>
-    <?php 
-      $stu = $_GET['stu'];
-    ?>
     <video id="preview"></video>
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
 
-          var data = '<?php=$stu?>'; // ตัวแปร PHP
+        let params = new URLSearchParams(location.search);
+        stu = params.get('stu');
         console.log(content);
+        console.log(stu);
         $.post("postqr.php",{
-          content
-          stu
+          content,stu
         },function(data) {
           alert('data');
           console.log("แสดงค่าตัวแปร -> "+data);
