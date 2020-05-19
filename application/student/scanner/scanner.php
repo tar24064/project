@@ -9,16 +9,16 @@
     <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
   </head>
   <body>
+    <?php 
+      $stu = $_GET['stu'];
+    ?>
     <video id="preview"></video>
-    <?php
-          echo "<script type="text/javascript">
-            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-            scanner.addListener('scan', function (content) {" 
-              
-          $data = $_GET['stu']; // ตัวแปร PHP
-          echo "var stu = '$data';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
-        
-        echo "console.log(content);
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+
+          var data = '<?php=$stu?>'; // ตัวแปร PHP
+        console.log(content);
         $.post("postqr.php",{
           content
           stu
@@ -35,8 +35,7 @@
         }
       }).catch(function (e) {
         console.error(e);
-      });"
-      ?>
+      });
     </script>
   </body>
 </html>
