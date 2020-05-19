@@ -16,13 +16,13 @@
 
         let params = new URLSearchParams(location.search);
         stu = params.get('stu');
-        console.log(content);
-        console.log(stu);
+        //console.log(content);
+        //console.log(stu);
         $.post("postqr.php",{
           content,stu
         },function(data) {
-          alert('data');
-          console.log("แสดงค่าตัวแปร -> "+data);
+          alert(data);
+          //console.log("แสดงค่าตัวแปร -> "+data);
         });
       });
       Instascan.Camera.getCameras().then(function (cameras) {

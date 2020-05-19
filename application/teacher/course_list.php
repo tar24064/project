@@ -72,7 +72,7 @@
                               <td><?php echo $c; ?></td>
                               <td><?php echo $course1_row['startclass']; ?></td>
                               <td align="center">
-                                <a href="http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $course1_row['code']; ?>&size=300*300" target="_blank" class="btn btn-primary">QR Code</a>
+                                <a href="http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $course1_row['code']; ?>&size=300*300" target="_blank" class="btn btn-primary">QR Code</a>  รหัสเช็คชื่อ : <?php echo $course1_row['code']; ?>
                               </td>
                             </tr>
                     <?php $c++;} ?>

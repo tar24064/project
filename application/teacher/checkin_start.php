@@ -1,6 +1,11 @@
     <?php 
       include '../../application/header.php'; 
-      
+      require __DIR__.'/../../vendor/Carbon/autoload.php';
+
+      use Carbon\Carbon;
+      use Carbon\CarbonInterval;
+      $date = new Carbon(Carbon::now(), 'Asia/Bangkok');
+
       if (isset($_POST['submit'])) {
         $conn->query("INSERT INTO `checkin` (`course_id`,`classtime`, `checklimit`,code) VALUES ('".$_GET['code']."','".$_POST['classtime']."','".$_POST['checklimit']."','".$_POST['codeRD']."')");
         echo "<script type='text/javascript'>alert('บันทึกข้อมูลสำเร็จ');</script>"; ?>
@@ -23,7 +28,7 @@
                 <div class="row">
                   <div class="col">
                     <div class="col col-auto form-group">
-                        <label>วันที่ : <?php echo date("Y-m-d H:i:s"); ?></label>
+                        <label>วันที่ : <?php echo $date; ?></label>
                     </div>
                     <div class="col col-auto form-group">
                         <?php 
@@ -51,7 +56,7 @@
                         <p class="help-block">30 นาที = 1800 วินาที</p>
                         <p class="">หากสิ้นสุดเวลาที่เปิดให้นักศึกษาเช็คชื่อ สถานะของนักศึกษาจะถูกเปลี่ยนเป็น "สาย"</p>
                         <?php 
-                            $n=20; 
+                            $n=6; 
                             function getName($n) { 
                                 $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
                                 $randomString = ''; 

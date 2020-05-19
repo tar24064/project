@@ -19,7 +19,7 @@
             if($tea_result["Role"] == "1"){
               header("location:../application/admin/course.php");
             }else{
-              header("location:../application/teacher/course.php");
+              header("location:../application/teacher/checkin.php");
             }
           }else{
             echo "<script type='text/javascript'>alert('Username หรือ Password ไม่ถูกต้อง');</script>";
@@ -93,7 +93,7 @@
                   </div>
                   <form class="user" method="POST">
                     <div class="form-group">
-                      <input type="text" class="form-control form-control-user" id="user" name="user" placeholder="รหัสพนักงาน">
+                      <input type="text" class="form-control form-control-user" id="user" name="user" placeholder="Username">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="pass" name="pass" placeholder="Password">

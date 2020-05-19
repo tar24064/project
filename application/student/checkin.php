@@ -57,7 +57,7 @@
                     <input type="text" class="form-control" id="checkin" name="checkin" placeholder="กรอกรหัสเข้าเรียน" required>
                     <input type="hidden" class="form-control" id="student_id" name="student_id" value="<?php echo $_SESSION["student_id"]; ?>">
                     <button type="submit" name="submit" class="btn btn-primary"><i class="fas fa-check"></i> เช็คชื่อ</button><br>
-                    <a href="#" class="btn btn-primary btn-icon-split">
+                    <a href="scanner/scanner.php?stu=<?php echo $_SESSION["student_id"]; ?>" class="btn btn-primary btn-icon-split">
                       <span class="icon text-white-50">
                         <i class="fas fa-qrcode"></i>
                       </span>

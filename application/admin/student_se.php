@@ -33,7 +33,7 @@
           while(($filesop = fgetcsv($handle, 1000, ",")) !== false)
                     {
 
-          $sql = "INSERT INTO `enroll`( `student_id`, `code_id`) VALUES VALUES ('".$filesop[0]."','".$_POST['codeid']."')";
+          $sql = "INSERT INTO `enroll`( `student_id`, `code_id`) VALUES ('".$filesop[0]."','".$_POST['codeid']."')";
           $conn->query($sql);
 
           $c = $c + 1;

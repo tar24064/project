@@ -13,7 +13,7 @@
 
       }
 
-      if (isset($_POST['delete']) && $_POST['delete']) {
+      if (isset($_POST['delete']) && $_POST['delete']) { 
         $conn->query("DELETE FROM `teacher` WHERE `Teacher_id` = '".$_POST['delete']."';");
         echo "<script type='text/javascript'>alert('ลบข้อมูลสำเร็จ');</script>";
        }
@@ -44,7 +44,7 @@
                echo "<script type='text/javascript'>alert('อัพโหลดข้อมูลไม่สำเร็จ !!!');</script>";;
              }
 
-      };
+      }; 
     ?>
 
         <!-- Begin Page Content -->
