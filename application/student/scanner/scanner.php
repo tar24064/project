@@ -10,14 +10,15 @@
   </head>
   <body>
     <video id="preview"></video>
-    <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        <?php
+    <?php
+          echo "<script type="text/javascript">
+            let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+            scanner.addListener('scan', function (content) {" 
+              
           $data = $_GET['stu']; // ตัวแปร PHP
           echo "var stu = '$data';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
-        ?>
-        console.log(content);
+        
+        echo "console.log(content);
         $.post("postqr.php",{
           content
           stu
@@ -34,7 +35,8 @@
         }
       }).catch(function (e) {
         console.error(e);
-      });
+      });"
+      ?>
     </script>
   </body>
 </html>
