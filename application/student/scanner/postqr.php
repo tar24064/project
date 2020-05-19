@@ -18,7 +18,7 @@ include_once __DIR__.'/../../../config/db.php';
           $date = new Carbon($startclass, 'Asia/Bangkok');
           $time = $date->diffInSeconds($checktime);  
           $chkid = $chk_row['id'];
-          $stuid = $_GET['stu'];
+          $stuid = $_POST['stu'];
 
           if ($time <= $chk_row['checklimit']) {
             $status = "มา";
