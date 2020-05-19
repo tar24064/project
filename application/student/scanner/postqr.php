@@ -6,7 +6,7 @@ require __DIR__.'/../../../vendor/Carbon/autoload.php';
 
       use Carbon\Carbon;
       use Carbon\CarbonInterval;
-include_once __DIR__.'/../../../config/db.php');
+include_once __DIR__.'/../../../config/db.php';
         $chk = $conn->query("SELECT * FROM `checkin` where code = '".$_POST['content']."'");
         $chk_row = $chk->fetch_assoc();
 
@@ -18,7 +18,7 @@ include_once __DIR__.'/../../../config/db.php');
           $date = new Carbon($startclass, 'Asia/Bangkok');
           $time = $date->diffInSeconds($checktime);  
           $chkid = $chk_row['id'];
-          $stuid = 23820;
+          $stuid = $_GET['stu'];
 
           if ($time <= $chk_row['checklimit']) {
             $status = "มา";

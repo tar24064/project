@@ -13,11 +13,17 @@
     <script type="text/javascript">
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
+        <?php
+          $data = $_GET['stu']; // ตัวแปร PHP
+          echo "var stu = '$data';"; // ส่งค่า $data จาก PHP ไปยังตัวแปร data ของ Javascript
+        ?>
         console.log(content);
         $.post("postqr.php",{
           content
+          stu
         },function(data) {
           alert('data');
+          console.log("แสดงค่าตัวแปร -> "+data);
         });
       });
       Instascan.Camera.getCameras().then(function (cameras) {
